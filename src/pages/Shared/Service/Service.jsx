@@ -7,7 +7,7 @@ const Service = ({ service }) => {
   return (
     <div class="flex justify-center">
       <div class="rounded-lg shadow-lg bg-white">
-        <a data-mdb-ripple="true" data-mdb-ripple-color="light">
+        <a data-mdb-ripple="true" data-mdb-ripple-color="purple">
           <img
             class="rounded-t-lg service__img"
             src={image}
