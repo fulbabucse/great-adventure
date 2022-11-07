@@ -2,3 +2,8 @@
   width: 100%;
   height: 300px;
 }
+
+.service__details img {
+  width: 400px;
+  border-radius: 5px;
+}
