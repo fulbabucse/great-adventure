@@ -6,11 +6,19 @@ import { useContext } from "react";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContexts);
   const { _id, serviceName, price, image, rating, des } = useLoaderData();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   const handleServiceReview = (e) => {
     e.preventDefault();
@@ -20,8 +28,16 @@ const ServiceDetails = () => {
     const id = _id;
     const rating = form.rating.value;
     const review = form.review.value;
-
-    const serviceReview = { name, email, review, rating, id };
+    const serviceReview = {
+      name,
+      email,
+      review,
+      rating,
+      id,
+      serviceName,
+      price,
+      image,
+    };
 
     fetch("http://localhost:5000/review", {
       method: "POST",
@@ -33,7 +49,6 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          setReviews(data);
           toast.success("Successfully added a Review");
           form.reset();
         }
