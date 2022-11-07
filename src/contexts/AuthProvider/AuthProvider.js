@@ -69,11 +69,6 @@ const AuthProvider = ({ children }) => {
     return deleteUser(auth.currentUser);
   };
 
-  const verifyUserEmail = () => {
-    setLoading(true);
-    return sendEmailVerification(auth.currentUser);
-  };
-
   const userPasswordReset = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
@@ -86,7 +81,6 @@ const AuthProvider = ({ children }) => {
     createUser,
     userSignOut,
     signInUser,
-    verifyUserEmail,
     updateUserProfile,
     deleteUserAccount,
     userPasswordReset,

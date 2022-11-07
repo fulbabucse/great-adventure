@@ -8,6 +8,7 @@ import ServiceDetails from "../../pages/Shared/ServiceDetails/ServiceDetails";
 import Login from "../../pages/User/Login/Login";
 import Profile from "../../pages/User/Profile/Profile";
 import Register from "../../pages/User/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,14 @@ export const router = createBrowserRouter([
       { path: "blog", element: <Blog></Blog> },
       { path: "login", element: <Login></Login> },
       { path: "register", element: <Register></Register> },
-      { path: "profile", element: <Profile></Profile> },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
       { path: "add-service", element: <AddService></AddService> },
       {
         path: "/service/:id",

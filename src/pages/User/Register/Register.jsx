@@ -24,7 +24,6 @@ const Register = () => {
         const user = res.user;
         handleUpdateUser(name, photoURL);
         form.reset();
-        handleEmailVerification();
         navigate("/");
       })
       .catch((err) => {
@@ -47,14 +46,6 @@ const Register = () => {
     };
     updateUserProfile(userInfo)
       .then((res) => {})
-      .catch((err) => console.error(err));
-  };
-
-  const handleEmailVerification = () => {
-    verifyUserEmail()
-      .then((res) => {
-        toast.success("Please check your email and verify");
-      })
       .catch((err) => console.error(err));
   };
 

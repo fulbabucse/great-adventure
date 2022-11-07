@@ -106,7 +106,7 @@ const Header = () => {
                           {user?.uid ? (
                             <button
                               onClick={handleUserSignOut}
-                              className="inline-block px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out"
+                              className="inline-block w-full px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out"
                             >
                               Log Out
                             </button>
@@ -140,18 +140,20 @@ const Header = () => {
                             </Link>
                           </li>
                         )}
-                        <li>
-                          <Link to="/add-service">
-                            <button
-                              type="button"
-                              data-mdb-ripple="true"
-                              data-mdb-ripple-color="light"
-                              className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg w-full focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                            >
-                              Add Services
-                            </button>
-                          </Link>
-                        </li>
+                        {user?.email && (
+                          <li>
+                            <Link to="/add-service">
+                              <button
+                                type="button"
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                                className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg w-full focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                              >
+                                Add Services
+                              </button>
+                            </Link>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   </div>
