@@ -4,8 +4,11 @@ import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const ServiceDetails = () => {
+  const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContexts);
   const { _id, serviceName, price, image, rating, des } = useLoaderData();
 
@@ -17,7 +20,25 @@ const ServiceDetails = () => {
     const id = _id;
     const rating = form.rating.value;
     const review = form.review.value;
-    console.log(name, email, review, rating, id);
+
+    const serviceReview = { name, email, review, rating, id };
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(serviceReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setReviews(data);
+          toast.success("Successfully added a Review");
+          form.reset();
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -57,6 +78,7 @@ const ServiceDetails = () => {
       <div className="mt-10">
         <div>
           <h4>Ratings & Reviews of {serviceName}</h4>
+          <p>Total Review {reviews.length}</p>
         </div>
         <div>
           <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
