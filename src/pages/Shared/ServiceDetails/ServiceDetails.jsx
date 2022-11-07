@@ -2,9 +2,24 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
+  const { user } = useContext(AuthContexts);
   const { _id, serviceName, price, image, rating, des } = useLoaderData();
+
+  const handleServiceReview = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = user?.displayName;
+    const email = user?.email;
+    const id = _id;
+    const rating = form.rating.value;
+    const review = form.review.value;
+    console.log(name, email, review, rating, id);
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto my-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -20,7 +35,7 @@ const ServiceDetails = () => {
               Price: <span className="text-2xl text-orange-600">${price}</span>
             </p>
             <p className="text-orange-400 font-medium flex items-center gap-2">
-              <p className="text-gray-700">Rating: </p>
+              <span className="text-gray-700">Rating: </span>
               <span className="flex">
                 <FaStar></FaStar>
                 <FaStar></FaStar>
@@ -39,7 +54,135 @@ const ServiceDetails = () => {
           </p>
         </div>
       </div>
-      <div></div>
+      <div className="mt-10">
+        <div>
+          <h4>Ratings & Reviews of {serviceName}</h4>
+        </div>
+        <div>
+          <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+            <form onSubmit={handleServiceReview} className="space-y-2">
+              <div className="flex gap-2">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    defaultValue={user?.displayName}
+                    className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
+                    id="exampleInput7"
+                    placeholder="Name"
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="rating"
+                    className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
+                    id="exampleInput7"
+                    placeholder="Rating"
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="photoLink"
+                  defaultValue={user?.photoURL}
+                  className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
+                  id="exampleInput8"
+                  placeholder="Photo"
+                />
+              </div>
+              <div className="form-group">
+                <textarea
+                  className="
+        form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
+      "
+                  id="exampleFormControlTextarea13"
+                  rows="3"
+                  name="review"
+                  placeholder="Review"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="
+      w-full
+      px-6
+      py-2.5
+      bg-purple-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-purple-700 hover:shadow-lg
+      focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-purple-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out"
+              >
+                Review
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
