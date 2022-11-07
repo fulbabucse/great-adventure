@@ -10,7 +10,19 @@ const AddService = () => {
     const rating = form.rating.value;
     const des = form.des.value;
     const service = { serviceName, price, image, rating, des };
-    console.log(service);
+
+    fetch("http://localhost:5000/service", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
