@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Service from "../../Shared/Service/Service";
 
 const Services = () => {
@@ -22,6 +23,16 @@ const Services = () => {
         {services?.map((service) => (
           <Service key={service._id} service={service}></Service>
         ))}
+      </div>
+      <div className="flex justify-center mt-3">
+        <Link to="/services">
+          <button
+            type="button"
+            class=" inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            See All
+          </button>
+        </Link>
       </div>
     </div>
   );
