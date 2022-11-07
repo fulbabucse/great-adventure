@@ -88,7 +88,7 @@ const Header = () => {
                         />
                       </button>
                       <ul
-                        className=" dropdown-menu px-2 min-w-max absolute hidden bg-white text-base z-50 space-y-2 py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
+                        className=" dropdown-menu px-2 min-w-max absolute hidden bg-white text-base z-50 space-y-2 py-2 list-none text-left rounded-md shadow-2xl mt-1 m-0 bg-clip-padding border-none"
                         aria-labelledby="dropdownMenuButton1"
                       >
                         {user?.uid && (
@@ -106,16 +106,17 @@ const Header = () => {
                           {user?.uid ? (
                             <button
                               onClick={handleUserSignOut}
-                              className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 font-semibold px-4 rounded-md  text-lg text-opacity-90 hover:text-opacity-100 w-full"
+                              className="inline-block px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out"
                             >
                               Log Out
                             </button>
                           ) : (
-                            <Link
-                              to="/login"
-                              className="text-sm font-normal block w-full whitespace-nowrap bg-transparent"
-                            >
-                              <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 font-semibold px-4 rounded-md  text-lg text-opacity-90 hover:text-opacity-100 w-full">
+                            <Link to="/login" className="w-full">
+                              <button
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                                className="inline-block px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 w-full active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out"
+                              >
                                 Log In
                               </button>
                             </Link>
@@ -132,13 +133,25 @@ const Header = () => {
                                 type="button"
                                 data-mdb-ripple="true"
                                 data-mdb-ripple-color="light"
-                                className="inline-block px-4 py-1 bg-purple-600 text-white font-medium text-lg leading-tight w-full rounded-md shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out normal-case"
+                                className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0  w-full active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
                               >
                                 Register
                               </button>
                             </Link>
                           </li>
                         )}
+                        <li>
+                          <Link to="/add-service">
+                            <button
+                              type="button"
+                              data-mdb-ripple="true"
+                              data-mdb-ripple-color="light"
+                              className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg w-full focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                            >
+                              Add Services
+                            </button>
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
