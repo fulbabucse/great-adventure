@@ -56,19 +56,18 @@ const Banner = () => {
             <div className="carousel-item active relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://img.freepik.com/free-psd/silver-iphone-13-pro-mockup_106244-2064.jpg?w=740&t=st=1667657826~exp=1667658426~hmac=c79a86e6e23008115c19136618461fb274439d9fac5eda55f098647fc156cd69"
+                  src="https://images.unsplash.com/photo-1658383895221-173f07c6a9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                   className="carousel-img"
                   alt="..."
                 />
               </div>
               <div className="carousel-caption top-5 lg:top-40 md:block absolute space-y-3 w-3/5 lg:w-2/4">
-                <h5 className="text-xl lg:text-6xl font-bold">
-                  Love the power <br /> Love the price
-                </h5>
+                <h5 className="text-xl lg:text-6xl font-bold">Sajek Valley</h5>
                 <p className="text-xs lg:text-lg">
-                  With Apple Trade In, you can get credit toward a new iPhone
-                  when you trade in an eligible smartphone.7 It’s good for you
-                  and the planet.
+                  If you want to see the land of the cloud in Bangladesh then
+                  you have to visit the queen of hills, Sajek Valley. Visiting
+                  this place will fulfill your dream of walking through the
+                  clouds.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">
@@ -81,7 +80,7 @@ const Banner = () => {
             <div className="carousel-item relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1661627310281-3863d788c0b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  src="https://images.unsplash.com/photo-1500313830540-7b6650a74fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                   className="carousel-img"
                   alt="..."
                 />
@@ -89,11 +88,11 @@ const Banner = () => {
 
               <div className="carousel-caption md:block absolute top-10 lg:top-40 space-y-3 w-4/5 lg:w-2/4">
                 <h5 className="text-xl lg:text-6xl font-bold capitalize">
-                  Our Everyday Pieces
+                  Eiffel Tower
                 </h5>
                 <p className="text-xs lg:text-lg">
-                  Introducing our new Sustainability Programme Product Trace
-                  your favorite MV pieces from conception to completion.
+                  The Eiffel Tower is a wrought-iron lattice tower on the Champ
+                  de Mars in Paris, France.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">
@@ -106,7 +105,7 @@ const Banner = () => {
             <div className="carousel-item relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://images.unsplash.com/photo-1651055163460-3563d657e44a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  src="https://www.planetware.com/wpimages/2021/04/africa-best-places-to-visit-great-pyramids-cairo-egypt.jpg"
                   className="carousel-img"
                   alt="..."
                 />
@@ -114,11 +113,12 @@ const Banner = () => {
 
               <div className="carousel-caption md:block absolute top-5 lg:top-40 space-y-3 w-4/5 lg:w-3/4">
                 <h5 className="text-xl lg:text-6xl font-bold">
-                  And the crowd goes wild <br /> The Fan Edition is back.
+                  Witness the Pyramids of Giza
                 </h5>
                 <p className="text-xs lg:text-lg w-3/5">
-                  Galaxy S21 series is 5G ready. Compatibility dependent upon 5G
-                  network availability in Bangladesh.
+                  Watching the sun rise or set over the Pyramids of Giza in
+                  Egypt from the back of a camel is an experience you'll never
+                  forget.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">
@@ -131,19 +131,19 @@ const Banner = () => {
             <div className="carousel-item relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://oasis.opstatics.com/content/dam/oasis/page/2022/operation/mar/0324/eu-banner/EU-10pro-Green_M-.jpg.transform/scale-50/image.jpg"
+                  src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=839&q=80"
                   className="carousel-img"
                   alt="..."
                 />
               </div>
 
               <div className="carousel-caption md:block absolute top-10 lg:top-40 space-y-3 w-4/5 lg:w-2/4">
-                <h5 className="text-xl lg:text-6xl font-bold">
-                  OnePlus 10 Pro 5G
-                </h5>
+                <h5 className="text-xl lg:text-6xl font-bold">Phuket</h5>
                 <p className="text-xs lg:text-lg">
-                  The pursuit of tactile perfection with balanced weight
-                  distribution.
+                  Thailand's biggest island is also a magnet for visitors–and
+                  for good reason. Phuket boasts some of the best beaches in the
+                  country, with clean, soft, rolling sands and turquoise waters
+                  as far as the eye can see.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">
@@ -156,20 +156,20 @@ const Banner = () => {
             <div className="carousel-item relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://img.freepik.com/free-photo/cute-freelance-girl-using-laptop-sitting-floor-smiling_176420-20221.jpg?w=740&t=st=1667658611~exp=1667659211~hmac=7907eeae85122d9d01b2ec1ed1df8eeea10d7f7dab73780470a4741cf748184d"
+                  src="https://www.holidify.com/images/compressed/dest_wiki_16716.jpg"
                   className="carousel-img"
                   alt="..."
                 />
               </div>
 
               <div className="carousel-caption md:block absolute top-4 lg:top-40 space-y-3 w-4/5 lg:w-2/4">
-                <h5 className="text-xl lg:text-6xl font-bold">
-                  Discover a <br /> new level of meeting collaboration
-                </h5>
+                <h5 className="text-xl lg:text-6xl font-bold">Venice</h5>
                 <p className="text-xs lg:text-lg">
-                  Introducing the HP Dragonfly Folio—this sophisticated, <br />
-                  highly secure, multi-mode PC anticipates and adapts <br /> to
-                  your life, your work, and your surroundings.
+                  A city located in north east Italy and the capital of the
+                  Veneto region. It is known for its beautiful settings, artwork
+                  and a predominantly Venetian Gothic architecture. A beautiful
+                  city known for its interconnected canals and its gondola
+                  rides.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">
@@ -181,7 +181,7 @@ const Banner = () => {
             <div className="carousel-item relative float-left w-full">
               <div className="carousel-images">
                 <img
-                  src="https://img.freepik.com/free-photo/closeup-shot-pretty-afro-american-girl-holding-some-shopping-bags-feeling-happy_181624-44670.jpg?w=740&t=st=1667658645~exp=1667659245~hmac=deaa630155b33252e9fd5eef060757804c94c67c5f9d8249bcba0db7cf661b90"
+                  src="https://www.holidify.com/images/bgImages/SANTORINI.jpg"
                   className="carousel-img"
                   alt="..."
                 />
@@ -189,11 +189,12 @@ const Banner = () => {
 
               <div className="carousel-caption md:block absolute top-8 lg:top-40 space-y-3 w-4/5 lg:w-2/4">
                 <h5 className="text-xl lg:text-6xl font-bold">
-                  Fashion Changing Always
+                  Oia, Santorini
                 </h5>
                 <p className="text-xs lg:text-lg">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                  Santorini is a volcano island just 200 km away from mainland
+                  Greece. The place was formed after a large volcanic eruption
+                  that created a caldera.
                 </p>
                 <div className="flex gap-3">
                   <button className="border text-white border-orange-500 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 w-28 px-1 py-1 text-xs lg:text-xl lg:w-40 lg:h-12 font-semibold rounded-sm text-opacity-90 hover:text-opacity-100">

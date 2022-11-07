@@ -3,6 +3,9 @@ import Root from "../../layouts/Root";
 import Blog from "../../pages/Blog/Blog";
 import Home from "../../pages/Home/Home/Home";
 import Services from "../../pages/Services/Services";
+import Login from "../../pages/User/Login/Login";
+import Profile from "../../pages/User/Profile/Profile";
+import Register from "../../pages/User/Register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +15,9 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home></Home> },
       { path: "services", element: <Services></Services> },
       { path: "blog", element: <Blog></Blog> },
+      { path: "login", element: <Login></Login> },
+      { path: "register", element: <Register></Register> },
+      { path: "profile", element: <Profile></Profile> },
     ],
   },
 ]);
