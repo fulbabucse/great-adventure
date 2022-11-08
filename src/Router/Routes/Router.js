@@ -19,7 +19,10 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home></Home> },
       {
         path: "services",
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch(
+            "https://greate-adventure-with-fahim-server.vercel.app/services"
+          ),
         element: <Services></Services>,
       },
       { path: "blog", element: <Blog></Blog> },
@@ -44,13 +47,17 @@ export const router = createBrowserRouter([
       {
         path: "/service/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://greate-adventure-with-fahim-server.vercel.app/services/${params.id}`
+          ),
         element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/my-review/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/review/${params.id}`),
+          fetch(
+            `https://greate-adventure-with-fahim-server.vercel.app/review/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdatesReview></UpdatesReview>

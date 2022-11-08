@@ -7,7 +7,7 @@ import Service from "../../Shared/Service/Service";
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/home-services`)
+    fetch(`https://greate-adventure-with-fahim-server.vercel.app/home-services`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.error(err));

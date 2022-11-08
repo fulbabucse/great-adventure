@@ -18,7 +18,9 @@ const ServiceDetails = () => {
   const { serviceId, serviceName, price, image, rating, des } = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
+    fetch(
+      `https://greate-adventure-with-fahim-server.vercel.app/reviews?serviceId=${serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
@@ -55,7 +57,7 @@ const ServiceDetails = () => {
       return;
     }
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://greate-adventure-with-fahim-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -162,30 +164,30 @@ const ServiceDetails = () => {
                         </span>
                       )) ||
                       (review.rating >= 3.5 && (
-                        <span className="flex">
+                        <span className="flex text-lg">
                           <FaStar></FaStar>
                           <FaStar></FaStar>
                           <FaStar></FaStar>
-                          <HiOutlineStar></HiOutlineStar>
                           <FaStarHalfAlt></FaStarHalfAlt>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
                         </span>
                       )) ||
                       (review.rating >= 3 && (
-                        <span className="flex">
+                        <span className="flex text-lg">
                           <FaStar></FaStar>
                           <FaStar></FaStar>
                           <FaStar></FaStar>
-                          <FaStarHalfAlt></FaStarHalfAlt>
-                          <FaStarHalfAlt></FaStarHalfAlt>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
                         </span>
                       )) ||
                       (review.rating >= 2 && (
-                        <span className="flex">
+                        <span className="flex text-lg">
                           <FaStar></FaStar>
                           <FaStar></FaStar>
-                          <FaStarHalfAlt></FaStarHalfAlt>
-                          <FaStarHalfAlt></FaStarHalfAlt>
-                          <FaStarHalfAlt></FaStarHalfAlt>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
+                          <HiOutlineStar className="text-xl"></HiOutlineStar>
                         </span>
                       ))}
                     ({review.rating} of 5)
