@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContexts } from "../../contexts/AuthProvider/AuthProvider";
 import { FaEdit, FaTimes } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -39,6 +40,9 @@ const MyReviews = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Review - Great Adventure with Fahim</title>
+      </Helmet>
       {reviews.length > 0 ? (
         <div className="max-w-screen-xl mx-auto h-screen my-4">
           <h1 className="text-center text-2xl font-bold text-gray-700">

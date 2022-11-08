@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signInUser, googleSign, userPasswordReset, signInGithub } =
@@ -90,6 +91,9 @@ const Login = () => {
 
   return (
     <section className="">
+      <Helmet>
+        <title>Log In - Great Adventure with Fahim</title>
+      </Helmet>
       <div className="container px-6 py-6 h-full">
         <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
           <div className="flex justify-center md:w-8/12 lg:w-6/12 mb-12 md:mb-0">

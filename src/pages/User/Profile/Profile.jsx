@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 
@@ -49,6 +50,9 @@ const Profile = () => {
 
   return (
     <div className="h-screen">
+      <Helmet>
+        <title>{user?.displayName} - Great Adventure with Fahim</title>
+      </Helmet>
       <div className="flex flex-col items-center mt-6">
         <div className="flex flex-col items-center">
           <img

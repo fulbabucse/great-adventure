@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Service from "../Shared/Service/Service";
 
@@ -6,6 +7,9 @@ const Services = () => {
   const services = useLoaderData();
   return (
     <div className="max-w-screen-xl mx-auto my-2 lg:my-10 px-3">
+      <Helmet>
+        <title>Services - Great Adventure with Fahim</title>
+      </Helmet>
       <h3 className="text-3xl font-bold text-purple-600 text-center uppercase mb-3">
         All Services
       </h3>

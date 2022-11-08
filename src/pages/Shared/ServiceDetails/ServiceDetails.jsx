@@ -9,6 +9,7 @@ import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
@@ -67,6 +68,9 @@ const ServiceDetails = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto my-6 px-3">
+      <Helmet>
+        <title>Service Details - Great Adventure with Fahim</title>
+      </Helmet>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <PhotoProvider>
           <PhotoView src={image}>

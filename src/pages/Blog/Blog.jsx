@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
   return (
     <div className="my-3 text-justify">
+      <Helmet>
+        <title>Blog - Great Adventure with Fahim</title>
+      </Helmet>
       <div className="w-full lg:w-2/4 mx-auto px-2 my-2 text-slate-700">
         <h3 className="text-xl font-bold italic">
           Q1: Difference between SQL and NoSQL?

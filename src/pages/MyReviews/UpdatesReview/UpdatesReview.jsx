@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
@@ -37,7 +38,10 @@ const UpdatesReview = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="flex flex-col items-center my-10">
+      <Helmet>
+        <title>Updates Review - Great Adventure with Fahim</title>
+      </Helmet>
       <h3 className="text-2xl font-bold text-gray-700">Update Your Review</h3>
       <div className="p-6 rounded-lg shadow-lg bg-white">
         <form onSubmit={handleServiceReview} className="space-y-2">

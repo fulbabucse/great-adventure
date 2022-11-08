@@ -6,12 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import "tw-elements";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-    <App />
-    <Toaster />
+    <HelmetProvider>
+      <App />
+      <Toaster />
+    </HelmetProvider>
   </AuthProvider>
 );
 
