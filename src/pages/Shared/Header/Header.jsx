@@ -102,6 +102,52 @@ const Header = () => {
                           </li>
                         )}
 
+                        {!user?.uid && (
+                          <li>
+                            <Link
+                              to="/register"
+                              className="text-sm font-normal block w-full whitespace-nowrap bg-transparent"
+                            >
+                              <button
+                                type="button"
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                                className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0  w-full active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                              >
+                                Register
+                              </button>
+                            </Link>
+                          </li>
+                        )}
+                        {user?.email && (
+                          <>
+                            <li>
+                              <Link to="/my-reviews">
+                                <button
+                                  type="button"
+                                  data-mdb-ripple="true"
+                                  data-mdb-ripple-color="light"
+                                  className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg w-full focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                >
+                                  My Review
+                                </button>
+                              </Link>
+                            </li>
+
+                            <li>
+                              <Link to="/add-service">
+                                <button
+                                  type="button"
+                                  data-mdb-ripple="true"
+                                  data-mdb-ripple-color="light"
+                                  className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg w-full focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                >
+                                  Add Services
+                                </button>
+                              </Link>
+                            </li>
+                          </>
+                        )}
                         <li>
                           {user?.uid ? (
                             <button
@@ -122,38 +168,6 @@ const Header = () => {
                             </Link>
                           )}
                         </li>
-
-                        {!user?.uid && (
-                          <li>
-                            <Link
-                              to="/register"
-                              className="text-sm font-normal block w-full whitespace-nowrap bg-transparent"
-                            >
-                              <button
-                                type="button"
-                                data-mdb-ripple="true"
-                                data-mdb-ripple-color="light"
-                                className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0  w-full active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                              >
-                                Register
-                              </button>
-                            </Link>
-                          </li>
-                        )}
-                        {user?.email && (
-                          <li>
-                            <Link to="/add-service">
-                              <button
-                                type="button"
-                                data-mdb-ripple="true"
-                                data-mdb-ripple-color="light"
-                                className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg w-full focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                              >
-                                Add Services
-                              </button>
-                            </Link>
-                          </li>
-                        )}
                       </ul>
                     </div>
                   </div>
