@@ -11,32 +11,40 @@ import { useEffect } from "react";
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContexts);
-  const { _id, serviceName, price, image, rating, des } = useLoaderData();
+  const { _id, serviceId, serviceName, price, image, rating, des } =
+    useLoaderData();
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [serviceId]);
+
+  const createAt = new Date().getTime();
+  const fullDateAndTime = new Date().toLocaleString();
 
   const handleServiceReview = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = user?.displayName;
     const email = user?.email;
-    const id = _id;
+    const reviewerImage = user?.photoURL;
     const rating = form.rating.value;
     const review = form.review.value;
+
     const serviceReview = {
       name,
       email,
       review,
       rating,
-      id,
+      serviceId,
       serviceName,
       price,
       image,
+      reviewerImage,
+      fullDateAndTime,
+      createAt,
     };
 
     fetch("http://localhost:5000/review", {
@@ -92,18 +100,108 @@ const ServiceDetails = () => {
       </div>
       <div className="mt-10">
         <div>
-          <h4>Ratings & Reviews of {serviceName}</h4>
-          <p>Total Review {reviews.length}</p>
+          <div className="space-y-1 mb-3">
+            <h4 className="text-xl font-bold text-gray-700">
+              Ratings & Reviews of {serviceName}
+            </h4>
+            <p>Total Review {reviews.length}</p>
+          </div>
+          <div>
+            {reviews.map((review) => (
+              <div
+                key={review._id}
+                className="mb-3 border-2 border-gray-300 p-4 w-full lg:w-3/5 rounded-md"
+              >
+                <div>
+                  <div className="flex gap-2 items-center">
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={review?.reviewerImage}
+                      alt={user?.displayName}
+                    />
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-700">
+                        {review?.name}
+                      </h4>
+                      <p>Reviewed on {review?.fullDateAndTime}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full lg:w-3/5">
+                  <p className="text-orange-400 font-medium flex items-center gap-2">
+                    <span className="text-gray-700">Rating: </span>
+                    <span className="flex">
+                      <FaStar></FaStar>
+                      <FaStar></FaStar>
+                      <FaStar></FaStar>
+                      <FaStar></FaStar>
+                      <FaStar></FaStar>
+                    </span>
+                    ({review.rating})
+                  </p>
+                  <p className="capitalize">{review?.review}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
         <div>
-          <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-            <form onSubmit={handleServiceReview} className="space-y-2">
-              <div className="flex gap-2">
+          {user?.email && (
+            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+              <form onSubmit={handleServiceReview} className="space-y-2">
+                <div className="flex gap-2">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      defaultValue={user?.displayName}
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
+                      id="exampleInput7"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="rating"
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
+                      id="exampleInput7"
+                      placeholder="Rating"
+                    />
+                  </div>
+                </div>
                 <div className="form-group">
                   <input
                     type="text"
-                    name="name"
-                    defaultValue={user?.displayName}
+                    name="photoLink"
+                    defaultValue={user?.photoURL}
                     className="form-control block
         w-full
         px-3
@@ -118,59 +216,13 @@ const ServiceDetails = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
-                    id="exampleInput7"
-                    placeholder="Name"
+                    id="exampleInput8"
+                    placeholder="Photo"
                   />
                 </div>
                 <div className="form-group">
-                  <input
-                    type="text"
-                    name="rating"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
-                    id="exampleInput7"
-                    placeholder="Rating"
-                  />
-                </div>
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="photoLink"
-                  defaultValue={user?.photoURL}
-                  className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
-                  id="exampleInput8"
-                  placeholder="Photo"
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  className="
+                  <textarea
+                    className="
         form-control
         block
         w-full
@@ -187,15 +239,15 @@ const ServiceDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none
       "
-                  id="exampleFormControlTextarea13"
-                  rows="3"
-                  name="review"
-                  placeholder="Review"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="
+                    id="exampleFormControlTextarea13"
+                    rows="3"
+                    name="review"
+                    placeholder="Review"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="
       w-full
       px-6
       py-2.5
@@ -213,11 +265,12 @@ const ServiceDetails = () => {
       transition
       duration-150
       ease-in-out"
-              >
-                Review
-              </button>
-            </form>
-          </div>
+                >
+                  Review
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </div>
