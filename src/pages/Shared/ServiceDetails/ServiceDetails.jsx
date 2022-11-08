@@ -65,7 +65,7 @@ const ServiceDetails = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto my-6">
+    <div className="max-w-screen-xl mx-auto my-6 px-3">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="w-full">
           <img src={image} className="rounded-md" alt={serviceName} />
@@ -100,8 +100,8 @@ const ServiceDetails = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <div className="space-y-1 mb-3">
-            <h4 className="text-xl font-bold text-gray-700">
+          <div className="space-y-1 mb-3 text-center lg:text-star">
+            <h4 className="text-xlt font-bold text-gray-700">
               Ratings & Reviews of {serviceName}
             </h4>
             <p>Total Review {reviews.length}</p>
@@ -146,8 +146,8 @@ const ServiceDetails = () => {
           </div>
         </div>
 
-        <div className="flex flex-col h-72">
-          <div className="space-y-1 mb-3">
+        <div className="flex flex-col h-full lg:h-72">
+          <div className="space-y-1 mb-3 text-center lg:text-star">
             <h4 className="text-xl font-bold text-gray-700">
               Review this Service
             </h4>

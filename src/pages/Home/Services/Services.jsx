@@ -13,7 +13,7 @@ const Services = () => {
       .catch((err) => console.error(err));
   }, []);
   return (
-    <div className="max-w-screen-xl mx-auto mb-5">
+    <div className="max-w-screen-xl mx-auto mb-5 px-3">
       <div>
         <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center uppercase mb-6">
           Services

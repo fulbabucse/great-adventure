@@ -38,9 +38,9 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto mt-3">
+    <div className="max-w-screen-xl mx-auto h-screen my-4">
       <h1 className="text-center text-2xl font-bold text-gray-700">
-        My Reviews {reviews.length}
+        My Total Reviews {reviews.length}
       </h1>
       <div className="flex flex-col">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -5,7 +5,7 @@ import Service from "../Shared/Service/Service";
 const Services = () => {
   const services = useLoaderData();
   return (
-    <div className="max-w-screen-xl mx-auto my-10">
+    <div className="max-w-screen-xl mx-auto my-2 lg:my-10 px-3">
       <h3 className="text-3xl font-bold text-purple-600 text-center uppercase mb-3">
         All Services
       </h3>
