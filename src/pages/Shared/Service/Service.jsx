@@ -13,7 +13,12 @@ const Service = ({ service }) => {
         <a data-mdb-ripple="true" data-mdb-ripple-color="purple">
           <PhotoProvider>
             <PhotoView src={image}>
-              <img style={{ objectFit: "cover" }} src={image} alt="" />
+              <img
+                className="service__img rounded-t-md"
+                style={{ objectFit: "cover" }}
+                src={image}
+                alt=""
+              />
             </PhotoView>
           </PhotoProvider>
         </a>
