@@ -50,7 +50,7 @@ const Register = () => {
   };
 
   return (
-    <section className="h-screen">
+    <section className="min-h-screen">
       <Helmet>
         <title>Register - Great Adventure with Fahim</title>
       </Helmet>

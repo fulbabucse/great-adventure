@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "../../../assets/style.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { HiOutlineStar } from "react-icons/hi2";
 import { useContext } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
@@ -48,6 +49,11 @@ const ServiceDetails = () => {
       fullDateAndTime,
       createAt,
     };
+
+    if (rating > 5) {
+      toast.error("Service rating are out of 5");
+      return;
+    }
 
     fetch("http://localhost:5000/review", {
       method: "POST",
@@ -137,14 +143,52 @@ const ServiceDetails = () => {
                 <div>
                   <p className="text-orange-400 font-medium flex items-center gap-2">
                     <span className="text-gray-700">Rating: </span>
-                    <span className="flex">
-                      <FaStar></FaStar>
-                      <FaStar></FaStar>
-                      <FaStar></FaStar>
-                      <FaStar></FaStar>
-                      <FaStar></FaStar>
-                    </span>
-                    ({review.rating})
+                    {(review.rating >= 4.5 && (
+                      <span className="flex">
+                        <FaStar></FaStar>
+                        <FaStar></FaStar>
+                        <FaStar></FaStar>
+                        <FaStar></FaStar>
+                        <FaStar></FaStar>
+                      </span>
+                    )) ||
+                      (review.rating >= 4 && (
+                        <span className="flex">
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                        </span>
+                      )) ||
+                      (review.rating >= 3.5 && (
+                        <span className="flex">
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <HiOutlineStar></HiOutlineStar>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                        </span>
+                      )) ||
+                      (review.rating >= 3 && (
+                        <span className="flex">
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                        </span>
+                      )) ||
+                      (review.rating >= 2 && (
+                        <span className="flex">
+                          <FaStar></FaStar>
+                          <FaStar></FaStar>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                          <FaStarHalfAlt></FaStarHalfAlt>
+                        </span>
+                      ))}
+                    ({review.rating} of 5)
                   </p>
                   <p className="capitalize text-sm">{review?.review}</p>
                 </div>
@@ -153,7 +197,7 @@ const ServiceDetails = () => {
           </div>
         </div>
 
-        <div className="flex flex-col h-full lg:h-72">
+        <div className="flex flex-col h-full">
           <div className="space-y-1 mb-3 text-center lg:text-start">
             <h4 className="text-xl font-bold text-gray-700">
               Review this Service

@@ -55,7 +55,7 @@ const MyReviews = () => {
         <title>Review - Great Adventure with Fahim</title>
       </Helmet>
       {reviews.length > 0 ? (
-        <div className="max-w-screen-xl mx-auto h-screen my-4">
+        <div className="max-w-screen-xl mx-auto min-h-screen my-4">
           <h1 className="text-center text-2xl font-bold text-gray-700">
             My Total Reviews {reviews.length}
           </h1>
@@ -203,7 +203,7 @@ const MyReviews = () => {
           </div>
         </div>
       ) : (
-        <div className="max-w-screen-xl mx-auto h-screen my-4">
+        <div className="max-w-screen-xl mx-auto min-h-screen my-4">
           <h3 className="text-center text-xl lg:text-3xl font-bold text-gray-700">
             No reviews were added
           </h3>

@@ -49,7 +49,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <Helmet>
         <title>{user?.displayName} - Great Adventure with Fahim</title>
       </Helmet>
