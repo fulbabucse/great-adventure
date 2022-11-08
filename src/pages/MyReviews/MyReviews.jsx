@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContexts } from "../../contexts/AuthProvider/AuthProvider";
 import { FaEdit, FaTimes } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -15,11 +16,31 @@ const MyReviews = () => {
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
   }, []);
-  console.log(reviews[0]);
+
+  const handleReviewDelete = (id) => {
+    const agree = window.confirm("Are you sure delete his Review");
+    if (agree) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingReviews = reviews.filter(
+              (review) => review._id !== id
+            );
+            toast.error("Orders cancel successfully");
+            setReviews(remainingReviews);
+          }
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto mt-3">
       <h1 className="text-center text-2xl font-bold text-gray-700">
-        My Reviews
+        My Reviews {reviews.length}
       </h1>
       <div className="flex flex-col">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -74,8 +95,11 @@ const MyReviews = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {reviews.map((review, index) => (
-                    <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  {reviews?.map((review, index) => (
+                    <tr
+                      key={review?._id}
+                      className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                    >
                       <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {index + 1}
                       </td>
@@ -125,9 +149,10 @@ const MyReviews = () => {
                           </button>
                         </Link>
 
-                        <Link>
+                        <div>
                           <button
                             type="submit"
+                            onClick={() => handleReviewDelete(review?._id)}
                             className="
       w-full
       px-6
@@ -149,7 +174,7 @@ const MyReviews = () => {
                           >
                             <FaTimes></FaTimes>
                           </button>
-                        </Link>
+                        </div>
                       </td>
                     </tr>
                   ))}
