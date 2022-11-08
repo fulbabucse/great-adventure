@@ -31,11 +31,11 @@ const AddService = () => {
   };
 
   return (
-    <div className="flex justify-center mt-5">
+    <div className="flex flex-col items-center my-5 lg:my-10">
+      <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center uppercase mb-3">
+        Add New Service
+      </h3>
       <div className="p-6 rounded-lg shadow-lg bg-white max-w-2xl">
-        <h3 className="text-center text-2xl font-semibold text-purple-500 mb-3">
-          Add New Service
-        </h3>
         <form onSubmit={handleAddService} className="space-y-3">
           <div className="grid grid-cols-2 gap-4">
             <div className="form-group">
