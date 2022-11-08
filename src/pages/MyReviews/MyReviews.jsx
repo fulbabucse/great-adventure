@@ -10,13 +10,24 @@ import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const { user } = useContext(AuthContexts);
+  const { user, userSignOut } = useContext(AuthContexts);
   useEffect(() => {
-    fetch(`http://localhost:5000/customerReview?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/customerReview?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem(
+          "great-adventure-token"
+        )}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return userSignOut();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [user?.email, userSignOut]);
 
   const handleReviewDelete = (id) => {
     const agree = window.confirm("Are you sure delete his Review");
@@ -30,7 +41,7 @@ const MyReviews = () => {
             const remainingReviews = reviews.filter(
               (review) => review._id !== id
             );
-            toast.error("Orders cancel successfully");
+            toast.error("Review delete successfully");
             setReviews(remainingReviews);
           }
         })

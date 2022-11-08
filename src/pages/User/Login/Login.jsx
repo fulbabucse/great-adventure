@@ -27,8 +27,7 @@ const Login = () => {
     signInUser(email, password)
       .then((res) => {
         const user = { email: res.user.email };
-
-        fetch("https://ornato-mart-server.vercel.app/jwt", {
+        fetch("http://localhost:5000/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -37,9 +36,10 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            localStorage.setItem("ornato-token", data.token);
+            localStorage.setItem("great-adventure-token", data.token);
+            navigate(from, { replace: true });
+            console.log(data);
           });
-        navigate(from, { replace: true });
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/user-not-found).") {
