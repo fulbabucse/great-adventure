@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaGoogle, FaFacebookF, FaGithub } from "react-icons/fa";
 import logo from "../../../assets/login.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 
 const Login = () => {
-  const { signInUser, googleSign, userPasswordReset } =
+  const { signInUser, googleSign, userPasswordReset, signInGithub } =
     useContext(AuthContexts);
   const [emailAddress, setEmailAddress] = useState("");
   const [errors, setErrors] = useState(null);
@@ -56,6 +56,16 @@ const Login = () => {
         const user = res.user;
         navigate(from, { replace: true });
         toast.success("Successfully sign in with Google");
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleGithubSignIn = () => {
+    signInGithub()
+      .then((res) => {
+        const user = res.user;
+        navigate(from, { replace: true });
+        toast.success("Successfully sign in with Github");
       })
       .catch((err) => console.error(err));
   };
@@ -152,25 +162,14 @@ const Login = () => {
               </button>
 
               <button
-                className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
-                style={{ backgroundColor: "#3b5998" }}
+                onClick={handleGithubSignIn}
+                className="px-7 py-3 text-white bg-gray-500 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
                 role="button"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
               >
-                <FaFacebookF className="mx-1"></FaFacebookF>
-                Continue with Facebook
-              </button>
-
-              <button
-                className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
-                style={{ backgroundColor: "#55acee" }}
-                role="button"
-                data-mdb-ripple="true"
-                data-mdb-ripple-color="light"
-              >
-                <FaTwitter className="mx-1"></FaTwitter>
-                Continue with Twitter
+                <FaGithub className="mx-1"></FaGithub>
+                Continue with Github
               </button>
               <p className="text-md font-semibold mt-3 text-center">
                 Already have an account?

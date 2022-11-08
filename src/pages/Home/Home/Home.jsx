@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      {user?.email && <AddService></AddService>}
+      {user?.email || (user?.uid && <AddService></AddService>)}
       <Services></Services>
     </div>
   );

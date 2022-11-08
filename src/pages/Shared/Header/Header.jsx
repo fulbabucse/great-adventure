@@ -63,12 +63,6 @@ const Header = () => {
                 >
                   Blog
                 </Link>
-
-                {user?.uid && (
-                  <li className="text-gray-600 hover:text-blue-600 list-none mr-3">
-                    <Link to="/orders">Orders</Link>
-                  </li>
-                )}
               </div>
 
               <div className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
@@ -119,22 +113,23 @@ const Header = () => {
                             </Link>
                           </li>
                         )}
-                        {user?.email && (
-                          <>
-                            <li>
-                              <Link to="/my-reviews">
-                                <button
-                                  type="button"
-                                  data-mdb-ripple="true"
-                                  data-mdb-ripple-color="light"
-                                  className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg w-full focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                                >
-                                  My Review
-                                </button>
-                              </Link>
-                            </li>
-                          </>
-                        )}
+                        {user?.email ||
+                          (user?.uid && (
+                            <>
+                              <li>
+                                <Link to="/my-reviews">
+                                  <button
+                                    type="button"
+                                    data-mdb-ripple="true"
+                                    data-mdb-ripple-color="light"
+                                    className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg w-full focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                  >
+                                    My Review
+                                  </button>
+                                </Link>
+                              </li>
+                            </>
+                          ))}
                         <li>
                           {user?.uid ? (
                             <button

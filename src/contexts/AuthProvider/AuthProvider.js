@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   deleteUser,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
@@ -22,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -56,14 +58,19 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const signInGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
   const userSignOut = () => {
-    localStorage.removeItem("ornato-token");
+    localStorage.removeItem("great-adventure-token");
     setLoading(true);
     return signOut(auth);
   };
 
   const deleteUserAccount = () => {
-    localStorage.removeItem("ornato-token");
+    localStorage.removeItem("great-adventure-token");
     setLoading(true);
     return deleteUser(auth.currentUser);
   };
@@ -80,6 +87,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     userSignOut,
     signInUser,
+    signInGithub,
     updateUserProfile,
     deleteUserAccount,
     userPasswordReset,
