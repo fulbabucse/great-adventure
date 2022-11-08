@@ -9,13 +9,11 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center space-x-2">
+      <div className="flex justify-center mt-10">
         <div
-          className="spinner-grow inline-block w-12 h-12 bg-current rounded-full opacity-0"
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
-        </div>
+          style={{ borderTopColor: "transparent" }}
+          className="w-16 h-16 border-4 border-blue-400 border-dashed rounded-full animate-spin"
+        ></div>
       </div>
     );
   }

@@ -130,9 +130,9 @@ const ServiceDetails = () => {
                 <div>
                   <div className="flex gap-2 items-center">
                     <img
-                      className="w-10 h-10 rounded-full"
+                      className="w-10 h-10 text-xs rounded-full"
                       src={review?.reviewerImage}
-                      alt={user?.displayName}
+                      alt={review?.name}
                     />
                     <div>
                       <h4 className="text-lg font-semibold text-gray-700">

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import RegisterLogo from "../../../assets/register.svg";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
+import TokenVerify from "../../../utilities/TokenVerify";
 
 const Register = () => {
   const [errors, setErrors] = useState(null);
@@ -22,9 +23,9 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         handleUpdateUser(name, photoURL);
-        form.reset();
+        const user = { email: res.user.email };
+        TokenVerify(user);
         navigate("/");
-        toast.success("Successfully crete Account");
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {

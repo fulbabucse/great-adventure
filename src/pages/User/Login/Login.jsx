@@ -7,6 +7,7 @@ import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import TokenVerify from "../../../utilities/TokenVerify";
 
 const Login = () => {
   const { signInUser, googleSign, userPasswordReset, signInGithub } =
@@ -53,6 +54,8 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSign()
       .then((res) => {
+        const user = { email: res.user.email };
+        TokenVerify(user);
         navigate(from, { replace: true });
         toast.success("Successfully sign in with Google");
       })
