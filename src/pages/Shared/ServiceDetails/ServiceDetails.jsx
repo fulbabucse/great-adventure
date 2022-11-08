@@ -3,8 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";
-import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -68,15 +68,11 @@ const ServiceDetails = () => {
   return (
     <div className="max-w-screen-xl mx-auto my-6 px-3">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div className="w-full">
-          <PhotoProvider>
-            <div className="foo">
-              <PhotoView>
-                <img src={image} alt="" />
-              </PhotoView>
-            </div>
-          </PhotoProvider>
-        </div>
+        <PhotoProvider>
+          <PhotoView src={image}>
+            <img style={{ objectFit: "cover" }} src={image} alt="" />
+          </PhotoView>
+        </PhotoProvider>
         <div className="flex flex-col justify-center">
           <h3 className="text-xl lg:text-3xl font-bold text-gray-700">
             {serviceName}

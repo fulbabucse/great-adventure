@@ -2,6 +2,8 @@ import React from "react";
 import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Service = ({ service }) => {
   const { _id, serviceName, price, image, rating, des } = service;
@@ -9,11 +11,11 @@ const Service = ({ service }) => {
     <div className="flex justify-center">
       <div className="rounded-lg shadow-lg bg-white">
         <a data-mdb-ripple="true" data-mdb-ripple-color="purple">
-          <img
-            className="rounded-t-lg service__img"
-            src={image}
-            alt={serviceName}
-          />
+          <PhotoProvider>
+            <PhotoView src={image}>
+              <img style={{ objectFit: "cover" }} src={image} alt="" />
+            </PhotoView>
+          </PhotoProvider>
         </a>
         <div className="p-4 space-y-1">
           <h5 className="text-xl uppercase font-bold text-purple-600">
