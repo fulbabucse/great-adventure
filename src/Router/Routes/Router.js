@@ -5,7 +5,6 @@ import Home from "../../pages/Home/Home/Home";
 import MyReviews from "../../pages/MyReviews/MyReviews";
 import UpdatesReview from "../../pages/MyReviews/UpdatesReview/UpdatesReview";
 import Services from "../../pages/Services/Services";
-import AddService from "../../pages/Shared/AddService/AddService";
 import ServiceDetails from "../../pages/Shared/ServiceDetails/ServiceDetails";
 import Login from "../../pages/User/Login/Login";
 import Profile from "../../pages/User/Profile/Profile";

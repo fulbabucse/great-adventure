@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGoogle, FaFacebookF, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import logo from "../../../assets/login.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -53,7 +53,6 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSign()
       .then((res) => {
-        const user = res.user;
         navigate(from, { replace: true });
         toast.success("Successfully sign in with Google");
       })

@@ -8,8 +8,7 @@ import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [errors, setErrors] = useState(null);
-  const { createUser, updateUserProfile, verifyUserEmail } =
-    useContext(AuthContexts);
+  const { createUser, updateUserProfile } = useContext(AuthContexts);
   const navigate = useNavigate();
   const handleUserLogIn = (e) => {
     setErrors("");
@@ -21,10 +20,10 @@ const Register = () => {
     const password = form.password.value;
     createUser(email, password)
       .then((res) => {
-        const user = res.user;
         handleUpdateUser(name, photoURL);
         form.reset();
         navigate("/");
+        toast.success("Successfully crete Account");
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {

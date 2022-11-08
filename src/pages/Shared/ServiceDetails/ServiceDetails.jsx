@@ -3,6 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -11,8 +13,7 @@ import { useEffect } from "react";
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContexts);
-  const { _id, serviceId, serviceName, price, image, rating, des } =
-    useLoaderData();
+  const { serviceId, serviceName, price, image, rating, des } = useLoaderData();
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
@@ -68,7 +69,13 @@ const ServiceDetails = () => {
     <div className="max-w-screen-xl mx-auto my-6 px-3">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="w-full">
-          <img src={image} className="rounded-md" alt={serviceName} />
+          <PhotoProvider>
+            <div className="foo">
+              <PhotoView>
+                <img src={image} alt="" />
+              </PhotoView>
+            </div>
+          </PhotoProvider>
         </div>
         <div className="flex flex-col justify-center">
           <h3 className="text-xl lg:text-3xl font-bold text-gray-700">
@@ -154,7 +161,7 @@ const ServiceDetails = () => {
             <p>Share your thoughts with other customers</p>
           </div>
 
-          {user?.email || user?.uid ? (
+          {user?.email ? (
             <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
               <form onSubmit={handleServiceReview} className="space-y-2">
                 <div className="flex gap-2">
@@ -184,6 +191,7 @@ const ServiceDetails = () => {
                   <div className="form-group">
                     <input
                       type="text"
+                      required
                       name="rating"
                       className="form-control block
         w-full
@@ -229,6 +237,7 @@ const ServiceDetails = () => {
                 </div>
                 <div className="form-group">
                   <textarea
+                    required
                     className="
         form-control
         block
