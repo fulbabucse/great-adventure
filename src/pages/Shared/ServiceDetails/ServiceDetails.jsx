@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "../../../assets/style.css";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";
@@ -98,7 +98,7 @@ const ServiceDetails = () => {
           </p>
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <div className="space-y-1 mb-3">
             <h4 className="text-xl font-bold text-gray-700">
@@ -110,7 +110,7 @@ const ServiceDetails = () => {
             {reviews.map((review) => (
               <div
                 key={review._id}
-                className="mb-3 border-2 border-gray-300 p-4 w-full lg:w-3/5 rounded-md"
+                className="mb-3 border-2 border-gray-200/70 py-2 px-3 w-full rounded-md"
               >
                 <div>
                   <div className="flex gap-2 items-center">
@@ -120,14 +120,14 @@ const ServiceDetails = () => {
                       alt={user?.displayName}
                     />
                     <div>
-                      <h4 className="text-xl font-semibold text-gray-700">
+                      <h4 className="text-lg font-semibold text-gray-700">
                         {review?.name}
                       </h4>
                       <p>Reviewed on {review?.fullDateAndTime}</p>
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-3/5">
+                <div>
                   <p className="text-orange-400 font-medium flex items-center gap-2">
                     <span className="text-gray-700">Rating: </span>
                     <span className="flex">
@@ -139,15 +139,22 @@ const ServiceDetails = () => {
                     </span>
                     ({review.rating})
                   </p>
-                  <p className="capitalize">{review?.review}</p>
+                  <p className="capitalize text-sm">{review?.review}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div>
-          {user?.email && (
+        <div className="flex flex-col h-72">
+          <div className="space-y-1 mb-3">
+            <h4 className="text-xl font-bold text-gray-700">
+              Review this Service
+            </h4>
+            <p>Share your thoughts with other customers</p>
+          </div>
+
+          {user?.email ? (
             <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
               <form onSubmit={handleServiceReview} className="space-y-2">
                 <div className="flex gap-2">
@@ -269,6 +276,34 @@ const ServiceDetails = () => {
                   Review
                 </button>
               </form>
+            </div>
+          ) : (
+            <div>
+              <Link to="/login">
+                <button
+                  type="submit"
+                  className="
+    w-40
+    px-6
+    py-2.5
+    bg-purple-600
+    text-white
+    font-medium
+    text-xs
+    leading-tight
+    uppercase
+    rounded
+    shadow-md
+    hover:bg-purple-700 hover:shadow-lg
+    focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
+    active:bg-purple-800 active:shadow-lg
+    transition
+    duration-150
+    ease-in-out"
+                >
+                  Write a Review
+                </button>
+              </Link>
             </div>
           )}
         </div>

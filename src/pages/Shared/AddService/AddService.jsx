@@ -4,13 +4,14 @@ import toast from "react-hot-toast";
 const AddService = () => {
   const handleAddService = (e) => {
     e.preventDefault();
+    const serviceId = Math.ceil(Math.random(1000) * 10000000000000);
     const form = e.target;
     const serviceName = form.serviceName.value;
     const price = form.price.value;
     const image = form.image.value;
     const rating = form.rating.value;
     const des = form.des.value;
-    const service = { serviceName, price, image, rating, des };
+    const service = { serviceName, price, image, rating, des, serviceId };
 
     fetch("http://localhost:5000/service", {
       method: "POST",
