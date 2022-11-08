@@ -123,7 +123,7 @@ const MyReviews = () => {
                         />
                       </td>
                       <td className="flex gap-3 mt-3">
-                        <Link>
+                        <Link to={`/my-review/${review?._id}`}>
                           <button
                             type="submit"
                             className="
