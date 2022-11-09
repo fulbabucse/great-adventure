@@ -84,7 +84,7 @@ const ServiceDetails = () => {
           </PhotoView>
         </PhotoProvider>
         <div className="flex flex-col justify-center">
-          <h3 className="text-xl lg:text-3xl font-bold text-gray-700">
+          <h3 className="text-xl lg:text-3xl capitalize font-bold text-gray-700">
             {serviceName}
           </h3>
           <div className="">

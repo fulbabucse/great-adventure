@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 
 const AddService = () => {
@@ -32,6 +33,9 @@ const AddService = () => {
 
   return (
     <div className="flex flex-col items-center my-5 lg:my-10">
+      <Helmet>
+        <title>Add New Service - Great Adventure with Fahim</title>
+      </Helmet>
       <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center uppercase mb-3">
         Add New Service
       </h3>

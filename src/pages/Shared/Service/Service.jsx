@@ -23,7 +23,7 @@ const Service = ({ service }) => {
           </PhotoProvider>
         </a>
         <div className="p-4 space-y-1">
-          <h5 className="text-xl uppercase font-bold text-purple-600">
+          <h5 className="text-xl capitalize font-bold text-purple-600">
             {serviceName}
           </h5>
           <p className="text-gray-700 font-medium text-base text-justify">
