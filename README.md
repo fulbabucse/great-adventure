@@ -15,7 +15,7 @@ It is a travel related website where an advisor provides various services. There
 
 - JSX
 - Tailwind
-- DaisyUi (Tailwind Component)
+- Tailwind Elements (Tailwind Component)
 - API
 - React JS
 - React Router
