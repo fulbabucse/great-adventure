@@ -130,7 +130,7 @@ const ServiceDetails = () => {
                     <img
                       className="w-10 h-10 text-xs rounded-full"
                       src={review?.reviewerImage}
-                      alt={review?.name}
+                      alt="Not available"
                     />
                     <div>
                       <h4 className="text-lg font-semibold text-gray-700">

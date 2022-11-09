@@ -15,8 +15,9 @@ const Services = () => {
   return (
     <div className="max-w-screen-xl mx-auto mb-5 px-3">
       <div className="flex flex-col w-full lg:w-1/2 mx-auto mb-6">
-        <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center uppercase">
+        <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center">
           Services
+          <p className="feature-underline"></p>
         </h3>
         <p className="text-center text-gray-700 font-semibold">
           Listen to a tour guide on a shuttle bus from the airport to the

@@ -1,8 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import { AuthContexts } from "../../../contexts/AuthProvider/AuthProvider";
 import Banner from "../Banner/Banner";
-import FeatureCountUp from "../FeatureCountUp/FeatureCountUp";
+import Features from "../Features/Features";
 import Services from "../Services/Services";
 import Testimonials from "../Testimonials/Testimonials";
 
@@ -11,8 +9,8 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Services></Services>
+      <Features></Features>
       <Testimonials></Testimonials>
-      <FeatureCountUp></FeatureCountUp>
     </div>
   );
 };

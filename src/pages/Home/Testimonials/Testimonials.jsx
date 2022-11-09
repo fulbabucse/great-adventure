@@ -13,12 +13,13 @@ import { Pagination } from "swiper";
 
 const Testimonials = () => {
   return (
-    <div>
-      <div className="flex flex-col w-full lg:w-1/2 mx-auto mb-6">
-        <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center uppercase">
-          Programming Quote
+    <div className="my-4 lg:my-10">
+      <div className="flex flex-col w-full lg:w-1/2 mx-auto mb-3">
+        <h3 className="text-xl lg:text-3xl font-bold text-purple-600 text-center mb-2">
+          Testimonials
+          <p className="feature-underline"></p>
         </h3>
-        <p className="text-center text-gray-700 font-semibold">
+        <p className="text-center text-gray-700">
           Listen to a tour guide on a shuttle bus from the airport to the
           resort. You can listen first, and then read. After that, test your
           understanding with the quick check.
@@ -33,60 +34,66 @@ const Testimonials = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="flex flex-col items-center">
-              <p className="text-xl font-bold text-gray-700">
-                “Any fool can write code that a computer can understand. <br />{" "}
-                Good programmers write code that humans can understand”
+            <div className="flex flex-col items-center testimonials">
+              <img
+                className="h-10 w-10  rounded-full"
+                src="https://scontent.fdac34-1.fna.fbcdn.net/v/t1.6435-9/74564203_790434564752263_52239055861055488_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEmj1D-zU6crdfMDr-V4OZutk-WvTolD2C2T5a9OiUPYA_2De8dh_d8Nh-_SQdCs7C4Rmfx4RooFw75OOpHpM6C&_nc_ohc=qLYkN2xPkOEAX_4e3X9&_nc_ht=scontent.fdac34-1.fna&oh=00_AfDaAhzDwGH1Vaa6yYcs79npUJFPUvFkonVRVIHE5GBmeQ&oe=6392D91A"
+                alt=""
+              />
+              <p className="text-lg italic font-semibold text-gray-700">
+                “What can we say?! We were just blown away by the <br />{" "}
+                attention to detail and the flawless service”
               </p>
-              <img src="https://martinfowler.com/img/mf-cologne.jpg" alt="" />
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-700">
-                Martin Flower
+              <h3 className="text-sm font-bold text-gray-700">
+                Fahim Islam, Bangladesh
               </h3>
-              <p className="text-sm capitalize">
-                British software developer,
-                <br /> author and international public speake
-              </p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center">
-              <p className="text-xl font-bold text-gray-700">
-                “Truth can only be found in one place: the code”
-              </p>
+            <div className="flex flex-col items-center testimonials">
               <img
-                src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_250,q_auto:good,w_250/v1/gcs/platform-data-dsc/events/robert-martin.jpg"
+                className="h-10 w-10  rounded-full"
+                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                 alt=""
               />
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-700">
-                Robert C. Martin
-              </h3>
-              <p className="text-sm capitalize">
-                American software engineer, <br /> instructor, and <br />{" "}
-                best-selling author.
+              <p className="text-lg italic font-semibold text-gray-700">
+                “By far our best vacation yet! It was so relaxing, <br /> we
+                never wanted to leave”
               </p>
+              <h3 className="text-sm font-bold text-gray-700">
+                Farhan Ahmed, Bangladesh
+              </h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center">
-              <p className="text-xl font-bold text-gray-700">
-                “The computer programmer is a creator of universes <br /> for
-                which he alone is the lawgiver. <br /> No playwright, no stage
-                director, no emperor, <br /> however powerful, has ever
-                exercised such absolute authority <br /> to arrange a stage or
-                field of battle <br /> and to command such unswervingly dutiful
-                actors or troops”
-              </p>
+            <div className="flex flex-col items-center testimonials">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5EQChwURhX4s989ZrJxFg7_SVqrST65gAMw&usqp=CAU"
+                className="h-10 w-10  rounded-full"
+                src="https://akns-images.eonline.com/eol_images/Entire_Site/20211022/rs_1200x1200-211122090451-1200-Jennifer-Lawrence.jpg"
                 alt=""
               />
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-700">
-                Joseph Weizenbaum
-              </h3>
-              <p className="text-sm">
-                British software developer,
-                <br /> author and international public speake
+              <p className="text-lg italic font-semibold text-gray-700">
+                “Jobs fill your pockets, adventures fill your soul”
               </p>
+              <h3 className="text-sm font-bold text-gray-700">
+                Jennifer Lawrence, USA
+              </h3>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex flex-col items-center testimonials">
+              <img
+                className="h-10 w-10  rounded-full"
+                src="https://media.licdn.com/dms/image/C4D03AQFYhR9vwnFRCA/profile-displayphoto-shrink_800_800/0/1561738976219?e=1672876800&v=beta&t=lbeZ-5DjKA7_i6dPoG53hpeAEckgGM1i7GjiEuyXBdw"
+                alt=""
+              />
+              <p className="text-lg italic font-semibold text-gray-700">
+                “Some beautiful paths can’t be discovered without getting lost”
+              </p>
+              <h3 className="text-sm font-bold text-gray-700">
+                Steve Jacob, Canada
+              </h3>
             </div>
           </SwiperSlide>
         </Swiper>

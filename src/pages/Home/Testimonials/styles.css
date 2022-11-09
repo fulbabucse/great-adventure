@@ -31,3 +31,7 @@
   object-fit: cover;
   margin-top: 20px;
 }
+
+.testimonials {
+  min-height: 200px;
+}

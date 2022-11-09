@@ -7,3 +7,12 @@
   width: 400px;
   border-radius: 5px;
 }
+
+.feature-underline {
+  width: 6rem;
+  height: 4px;
+  background-color: #9333ea;
+  border-radius: 50px;
+  margin: 0 auto;
+  margin-top: 7px;
+}
