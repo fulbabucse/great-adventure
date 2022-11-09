@@ -17,13 +17,6 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContexts);
   const { serviceId, serviceName, price, image, rating, des } = useLoaderData();
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data))
-      .catch((err) => console.error(err));
-  }, [serviceId]);
-
   const createAt = new Date().getTime();
   const fullDateAndTime = new Date().toLocaleString();
 
@@ -72,6 +65,13 @@ const ServiceDetails = () => {
       .catch((err) => console.error(err));
   };
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data))
+      .catch((err) => console.error(err));
+  }, [serviceId, createAt]);
+
   return (
     <div className="max-w-screen-xl mx-auto my-6 px-3">
       <Helmet>
@@ -103,7 +103,7 @@ const ServiceDetails = () => {
               ({rating})
             </p>
           </div>
-          <p className="text-justify">
+          <p className="text-justify text-gray-800">
             <span className="text-xl font-semibold text-gray-700">
               Descriptions:
             </span>{" "}
@@ -114,8 +114,8 @@ const ServiceDetails = () => {
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <div className="space-y-1 mb-3 text-center lg:text-start">
-            <h4 className="text-xlt font-bold text-gray-700">
-              Ratings & Reviews of {serviceName}
+            <h4 className="text-xl font-bold text-gray-700">
+              Ratings & Reviews of {serviceName} Service
             </h4>
             <p>Total Review {reviews.length}</p>
           </div>
@@ -202,7 +202,11 @@ const ServiceDetails = () => {
             <h4 className="text-xl font-bold text-gray-700">
               Review this Service
             </h4>
-            <p>Share your thoughts with other customers</p>
+            {user?.email ? (
+              <p>Share your thoughts with other customers</p>
+            ) : (
+              <p>Please login and share your valuable opinion</p>
+            )}
           </div>
 
           {user?.email ? (
@@ -214,6 +218,7 @@ const ServiceDetails = () => {
                       type="text"
                       name="name"
                       defaultValue={user?.displayName}
+                      readOnly
                       className="form-control block
         w-full
         px-3
@@ -261,6 +266,7 @@ const ServiceDetails = () => {
                     type="text"
                     name="photoLink"
                     defaultValue={user?.photoURL}
+                    readOnly
                     className="form-control block
         w-full
         px-3
@@ -331,8 +337,8 @@ const ServiceDetails = () => {
               </form>
             </div>
           ) : (
-            <div>
-              <Link to="/login">
+            <div className="flex flex-col justify-center lg:justify-start">
+              <Link to="/login" className="w-40">
                 <button
                   type="submit"
                   className="
@@ -354,7 +360,7 @@ const ServiceDetails = () => {
     duration-150
     ease-in-out"
                 >
-                  Write a Review
+                  Log In
                 </button>
               </Link>
             </div>

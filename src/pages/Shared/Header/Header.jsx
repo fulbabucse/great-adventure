@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaTh, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import UserThumb from "../../../assets/user_thumbnail.jpg";
 import logo from "../../../assets/logo.png";
@@ -30,7 +30,7 @@ const Header = () => {
                   className="p-2 text-slate-700 rounded-md outline-none focus:border-slate-700 focus:border"
                   onClick={() => setNavbar(!navbar)}
                 >
-                  {navbar ? <FaTimes></FaTimes> : <FaTh></FaTh>}
+                  {navbar ? <FaTimes></FaTimes> : <FaBars></FaBars>}
                 </button>
               </div>
             </div>

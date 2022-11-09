@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 const AddService = () => {
   const handleAddService = (e) => {
     e.preventDefault();
-    const serviceId = Math.ceil(Math.random(1000) * 10000000000000);
+    const serviceId =
+      Math.ceil(Math.random(1000) * 10000000000000) + "fahimislam";
     const form = e.target;
     const serviceName = form.serviceName.value;
     const price = form.price.value;

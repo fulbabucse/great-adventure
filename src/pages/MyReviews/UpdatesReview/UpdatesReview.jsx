@@ -52,6 +52,7 @@ const UpdatesReview = () => {
                 name="name"
                 onBlur={handleUpdateReviewBlur}
                 defaultValue={user?.displayName}
+                readOnly
                 className="form-control block
         w-full
         px-3
@@ -101,6 +102,7 @@ const UpdatesReview = () => {
               name="photoLink"
               onBlur={handleUpdateReviewBlur}
               defaultValue={user?.photoURL}
+              readOnly
               className="form-control block
         w-full
         px-3
@@ -167,7 +169,7 @@ const UpdatesReview = () => {
       duration-150
       ease-in-out"
           >
-            Review
+            Update Review
           </button>
         </form>
       </div>
