@@ -27,7 +27,7 @@ const Login = () => {
     signInUser(email, password)
       .then((res) => {
         const user = { email: res.user.email };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://greate-adventure-with-fahim-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -57,7 +57,7 @@ const Login = () => {
           email: res.user.email,
         };
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://greate-adventure-with-fahim-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -20,7 +20,9 @@ const Services = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services?page=${page}&size=${size}`)
+    fetch(
+      `https://greate-adventure-with-fahim-server.vercel.app/services?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setServices(data.services);

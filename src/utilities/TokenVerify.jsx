@@ -1,5 +1,5 @@
 const TokenVerify = (user) => {
-  fetch("http://localhost:5000/jwt", {
+  fetch("https://greate-adventure-with-fahim-server.vercel.app/jwt", {
     method: "POST",
     headers: {
       "content-type": "application/json",

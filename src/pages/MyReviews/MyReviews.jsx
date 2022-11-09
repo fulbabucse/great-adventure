@@ -22,13 +22,16 @@ const MyReviews = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/customerReview?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem(
-          "great-adventure-token"
-        )}`,
-      },
-    })
+    fetch(
+      `https://greate-adventure-with-fahim-server.vercel.app/customerReview?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem(
+            "great-adventure-token"
+          )}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return userSignOut();
@@ -42,9 +45,12 @@ const MyReviews = () => {
   const handleReviewDelete = (id) => {
     const agree = window.confirm("Are you sure delete his Review");
     if (agree) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://greate-adventure-with-fahim-server.vercel.app/reviews/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
