@@ -23,7 +23,7 @@ const UpdatesReview = () => {
   const handleServiceReview = (e) => {
     e.preventDefault();
 
-    fetch(`https://greate-adventure-with-fahim-server.vercel.app/review/${review?._id}`, {
+    fetch(`http://localhost:5000/review/${review?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

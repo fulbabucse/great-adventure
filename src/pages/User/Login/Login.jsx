@@ -27,7 +27,7 @@ const Login = () => {
     signInUser(email, password)
       .then((res) => {
         const user = { email: res.user.email };
-        fetch("https://greate-adventure-with-fahim-server.vercel.app/jwt", {
+        fetch("http://localhost:5000/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -53,9 +53,23 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSign()
       .then((res) => {
-        navigate(from, { replace: true });
-        console.log(res.user);
-        toast.success("Successfully sign in with Google");
+        const user = {
+          email: res.user.email,
+        };
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("great-adventure-token", data.token);
+            navigate(from, { replace: true });
+            toast.success("Successfully sign in with Google");
+          });
       })
       .catch((err) => console.error(err));
   };

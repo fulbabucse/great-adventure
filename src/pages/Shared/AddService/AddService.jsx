@@ -13,7 +13,7 @@ const AddService = () => {
     const des = form.des.value;
     const service = { serviceName, price, image, rating, des, serviceId };
 
-    fetch("https://greate-adventure-with-fahim-server.vercel.app/service", {
+    fetch("http://localhost:5000/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",
