@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { signInUser, googleSign, userPasswordReset, signInGithub } =
+  const { signInUser, googleSign, userPasswordReset } =
     useContext(AuthContexts);
   const [emailAddress, setEmailAddress] = useState("");
   const [errors, setErrors] = useState(null);
@@ -70,16 +70,6 @@ const Login = () => {
             navigate(from, { replace: true });
             toast.success("Successfully sign in with Google");
           });
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const handleGithubSignIn = () => {
-    signInGithub()
-      .then((res) => {
-        const user = res.user;
-        navigate(from, { replace: true });
-        toast.success("Successfully sign in with Github");
       })
       .catch((err) => console.error(err));
   };
@@ -176,17 +166,6 @@ const Login = () => {
               >
                 <FaGoogle className="mx-1"></FaGoogle>
                 Continue with Google
-              </button>
-
-              <button
-                onClick={handleGithubSignIn}
-                className="px-7 py-3 text-white bg-gray-500 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
-                role="button"
-                data-mdb-ripple="true"
-                data-mdb-ripple-color="light"
-              >
-                <FaGithub className="mx-1"></FaGithub>
-                Continue with Github
               </button>
               <p className="text-md font-semibold mt-3 text-center">
                 Already have an account?

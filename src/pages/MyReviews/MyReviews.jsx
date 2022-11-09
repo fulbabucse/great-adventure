@@ -7,10 +7,20 @@ import { AuthContexts } from "../../contexts/AuthProvider/AuthProvider";
 import { FaEdit, FaTimes } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import { BounceLoader } from "react-spinners";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const { user, userSignOut } = useContext(AuthContexts);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
+
   useEffect(() => {
     fetch(`http://localhost:5000/customerReview?email=${user?.email}`, {
       headers: {
@@ -54,160 +64,175 @@ const MyReviews = () => {
       <Helmet>
         <title>Review - Great Adventure with Fahim</title>
       </Helmet>
-      {reviews.length > 0 ? (
-        <div className="max-w-screen-xl mx-auto min-h-screen my-4">
-          <h1 className="text-center text-2xl font-bold text-gray-700">
-            My Total Reviews {reviews.length}
-          </h1>
-          <div className="flex flex-col">
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div className="overflow-hidden">
-                  <table className="min-w-full">
-                    <thead className="bg-white border-b">
-                      <tr>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          No
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          Service Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          Price
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          Rating
-                        </th>
+      {loading ? (
+        <div className="flex justify-center min-h-screen mt-6 lg:mt-48">
+          <BounceLoader
+            color={"#36d7b7"}
+            loading={loading}
+            aria-label="Loading Spinner"
+            data-testId="loader"
+          />
+        </div>
+      ) : (
+        <>
+          {reviews.length > 0 ? (
+            <div className="max-w-screen-xl mx-auto min-h-screen my-4">
+              <h1 className="text-center text-2xl font-bold text-gray-700">
+                My Total Reviews {reviews.length}
+              </h1>
+              <div className="flex flex-col">
+                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div className="overflow-hidden">
+                      <table className="min-w-full">
+                        <thead className="bg-white border-b">
+                          <tr>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              No
+                            </th>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              Service Name
+                            </th>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              Price
+                            </th>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              Rating
+                            </th>
 
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          Review
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 py-4 text-left"
-                        >
-                          Service Image
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
-                        >
-                          Action
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {reviews?.map((review, index) => (
-                        <tr
-                          key={review?._id}
-                          className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
-                        >
-                          <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {index + 1}
-                          </td>
-                          <td className="text-sm text-gray-900 font-light px-2 py-4 whitespace-nowrap">
-                            {review?.serviceName}
-                          </td>
-                          <td className="text-sm text-gray-900 font-light px-2 py-4 whitespace-nowrap">
-                            ${review?.price}
-                          </td>
-                          <td className="text-sm text-gray-900 font-light px-2 py-4 whitespace-nowrap">
-                            {review?.rating}
-                          </td>
-                          <td className="text-sm capitalize text-gray-900 font-light px-2 py-4 whitespace-nowrap">
-                            {review?.review.slice(0, 50)}
-                          </td>
-                          <td className="text-sm text-gray-900 font-light py-2 whitespace-nowrap">
-                            <img
-                              className="w-12 h-12 rounded-md"
-                              src={review?.image}
-                              alt={review?.serviceName}
-                            />
-                          </td>
-                          <td className="flex gap-3 mt-3">
-                            <Link to={`/my-review/${review?._id}`}>
-                              <button
-                                type="submit"
-                                className="
-        w-full
-        px-6
-        py-2.5
-        bg-purple-600
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        rounded
-        shadow-md
-        hover:bg-purple-700 hover:shadow-lg
-        focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
-        active:bg-purple-800 active:shadow-lg
-        transition
-        duration-150
-        ease-in-out"
-                              >
-                                <FaEdit></FaEdit>
-                              </button>
-                            </Link>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              Review
+                            </th>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 py-4 text-left"
+                            >
+                              Service Image
+                            </th>
+                            <th
+                              scope="col"
+                              className="text-sm font-medium text-gray-900 px-2 py-4 text-left"
+                            >
+                              Action
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {reviews?.map((review, index) => (
+                            <tr
+                              key={review?._id}
+                              className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                            >
+                              <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                {index + 1}
+                              </td>
+                              <td className="text-sm capitalize text-gray-900 font-light px-2 py-4 whitespace-nowrap">
+                                {review?.serviceName}
+                              </td>
+                              <td className="text-sm text-gray-900 font-light px-2 py-4 whitespace-nowrap">
+                                ${review?.price}
+                              </td>
+                              <td className="text-sm text-gray-900 font-light px-2 py-4 whitespace-nowrap">
+                                {review?.rating}
+                              </td>
+                              <td className="text-sm capitalize text-gray-900 font-light px-2 py-4 whitespace-nowrap">
+                                {review?.review.slice(0, 50)}
+                              </td>
+                              <td className="text-sm text-gray-900 font-light py-2 whitespace-nowrap">
+                                <img
+                                  className="w-12 h-12 rounded-md"
+                                  src={review?.image}
+                                  alt={review?.serviceName}
+                                />
+                              </td>
+                              <td className="flex gap-3 mt-3">
+                                <Link to={`/my-review/${review?._id}`}>
+                                  <button
+                                    type="submit"
+                                    className="
+          w-full
+          px-6
+          py-2.5
+          bg-purple-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-purple-700 hover:shadow-lg
+          focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-purple-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out"
+                                  >
+                                    <FaEdit></FaEdit>
+                                  </button>
+                                </Link>
 
-                            <div>
-                              <button
-                                type="submit"
-                                onClick={() => handleReviewDelete(review?._id)}
-                                className="
-        w-full
-        px-6
-        py-2.5
-        bg-red-600
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        rounded
-        shadow-md
-        hover:bg-red-700 hover:shadow-lg
-        focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
-        active:bg-red-800 active:shadow-lg
-        transition
-        duration-150
-        ease-in-out"
-                              >
-                                <FaTimes></FaTimes>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                                <div>
+                                  <button
+                                    type="submit"
+                                    onClick={() =>
+                                      handleReviewDelete(review?._id)
+                                    }
+                                    className="
+          w-full
+          px-6
+          py-2.5
+          bg-red-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-red-700 hover:shadow-lg
+          focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-red-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out"
+                                  >
+                                    <FaTimes></FaTimes>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        <div className="max-w-screen-xl mx-auto min-h-screen my-4">
-          <h3 className="text-center text-xl lg:text-3xl font-bold text-gray-700">
-            No reviews were added
-          </h3>
-        </div>
+          ) : (
+            <div className="max-w-screen-xl mx-auto min-h-screen my-4">
+              <h3 className="text-center text-xl lg:text-3xl font-bold text-gray-700">
+                No reviews were added
+              </h3>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

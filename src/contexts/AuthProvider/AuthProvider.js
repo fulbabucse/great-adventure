@@ -3,7 +3,6 @@ import {
   createUserWithEmailAndPassword,
   deleteUser,
   getAuth,
-  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
@@ -23,7 +22,6 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -58,11 +56,6 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const signInGithub = () => {
-    setLoading(true);
-    return signInWithPopup(auth, githubProvider);
-  };
-
   const userSignOut = () => {
     localStorage.removeItem("great-adventure-token");
     setLoading(true);
@@ -87,7 +80,6 @@ const AuthProvider = ({ children }) => {
     createUser,
     userSignOut,
     signInUser,
-    signInGithub,
     updateUserProfile,
     deleteUserAccount,
     userPasswordReset,
