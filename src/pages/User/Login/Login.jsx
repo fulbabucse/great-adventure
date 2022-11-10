@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import logo from "../../../assets/login.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -101,7 +101,7 @@ const Login = () => {
       <div className="container px-6 py-6 h-full">
         <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
           <div className="flex justify-center md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-            <img src={logo} className="w-full lg:w-3/5" alt="Phone image" />
+            <img src={logo} className="w-full lg:w-3/5" alt="Phone" />
           </div>
           <div className="w-full md:w-8/12 lg:w-5/12 lg:ml-20">
             <div className="mb-4">

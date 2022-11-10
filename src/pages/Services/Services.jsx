@@ -16,7 +16,7 @@ const Services = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 1500);
   }, []);
 
   useEffect(() => {

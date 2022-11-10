@@ -26,6 +26,7 @@ const Register = () => {
         const user = { email: res.user.email };
         TokenVerify(user);
         navigate("/");
+        toast.success("Successfully created new Account");
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {
