@@ -37,22 +37,6 @@ const Testimonials = () => {
             <div className="flex flex-col items-center testimonials">
               <img
                 className="h-10 w-10  rounded-full"
-                src="https://scontent.fdac34-1.fna.fbcdn.net/v/t1.6435-9/74564203_790434564752263_52239055861055488_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEmj1D-zU6crdfMDr-V4OZutk-WvTolD2C2T5a9OiUPYA_2De8dh_d8Nh-_SQdCs7C4Rmfx4RooFw75OOpHpM6C&_nc_ohc=qLYkN2xPkOEAX_4e3X9&_nc_ht=scontent.fdac34-1.fna&oh=00_AfDaAhzDwGH1Vaa6yYcs79npUJFPUvFkonVRVIHE5GBmeQ&oe=6392D91A"
-                alt=""
-              />
-              <p className="text-lg italic font-semibold text-gray-700">
-                “What can we say?! We were just blown away by the <br />{" "}
-                attention to detail and the flawless service”
-              </p>
-              <h3 className="text-sm font-bold text-gray-700">
-                Fahim Islam, Bangladesh
-              </h3>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center testimonials">
-              <img
-                className="h-10 w-10  rounded-full"
                 src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                 alt=""
               />

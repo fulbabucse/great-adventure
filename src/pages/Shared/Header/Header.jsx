@@ -56,13 +56,6 @@ const Header = () => {
                 >
                   Services
                 </Link>
-
-                <Link
-                  to="/blog"
-                  className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-                >
-                  Blog
-                </Link>
               </div>
 
               <div className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
